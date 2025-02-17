@@ -22,10 +22,10 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -i ~/.ssh/ec2_key ec2-user@3.83.88.197 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key ec2-user@3.83.88.197 << 'ENDSSH'
             cd /home/ec2-user/node-ci-cd-project-inst
             git pull origin main
             npm install
             npm run build
-            pm2 restart app  # If using PM2 or any process manager
-          EOF
+            pm2 restart app
+          ENDSSH
