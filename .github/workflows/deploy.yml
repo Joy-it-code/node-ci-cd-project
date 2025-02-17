@@ -23,9 +23,8 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key ec2-user@3.89.125.47 << 'ENDSSH'
-            cd /home/ec2-user/node-ci-cd-project-inst
+            cd /home/ec2-user/simple-nodejs-app
             git pull origin main
             npm install
-            npm run build
-            
+            pm2 restart app || pm2 start index.js --name "app"
           ENDSSH
