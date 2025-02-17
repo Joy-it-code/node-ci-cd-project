@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key ec2-user@3.83.88.197 << 'ENDSSH'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ec2_key ec2-user@3.89.125.47 << 'ENDSSH'
             cd /home/ec2-user/node-ci-cd-project-inst
             git pull origin main
             npm install
